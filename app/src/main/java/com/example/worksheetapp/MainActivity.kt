@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.worksheetapp.screens.CreateSheetScreen
 import com.example.worksheetapp.screens.EditSheetScreen
 import com.example.worksheetapp.screens.HomeScreen
+import com.example.worksheetapp.screens.LoginScreen
 import com.example.worksheetapp.ui.theme.WorkSheetAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -55,7 +56,16 @@ fun WorkSheetApp(){
                 // When a worksheet is selected, navigate to the edit/ view screen.
                 // The sheetId is passed in the route so the next screen
                 // knows which worksheet to loads.
-                onWorkSheetClick = { sheetId -> navController.navigate("viewEditSheet/$sheetId") }
+                onWorkSheetClick = { sheetId -> navController.navigate("viewEditSheet/$sheetId") },
+
+                onLoginClick = { navController.navigate("loginscreen")}
+            )
+        }
+
+        composable("loginscreen") {
+            // Displays the UI where a user can create a worksheet.
+            LoginScreen(
+
             )
         }
 
